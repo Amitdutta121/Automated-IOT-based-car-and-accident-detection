@@ -3,9 +3,10 @@ from flask import render_template, request
 import RPi.GPIO as GPIO
 import time
 import socket
-
+#create flask server
 app = Flask(__name__)
 
+#select motor driver pin
 m11=2
 m12=3
 m21=14
@@ -15,6 +16,7 @@ m22=15
 m31=19
 m32=26
 
+#initially everything is set to LOW
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(m11, GPIO.OUT)
@@ -32,6 +34,8 @@ GPIO.output(m22, 0)
 GPIO.output(m31, 0)
 GPIO.output(m32, 0)
 
+
+#creating snippet to acces with javascript
 a=1
 @app.route("/")
 def index():
@@ -92,9 +96,11 @@ def butt():
 
 if __name__ == "__main__":    
  import socket
+ #getting the local ip address
  s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
  s.connect(("8.8.8.8", 80))
  ipaddr = s.getsockname()[0] 
  s.close()
  print ("Start")
+#run the loacl server
  app.run(host=ipaddr,port=5010)
