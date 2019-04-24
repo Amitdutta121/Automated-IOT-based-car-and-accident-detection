@@ -1,6 +1,6 @@
 
 Hardware information
-The hardware components that are used in the street light intensity control system are given below:
+The hardware components that are used in the Automated-IOT-based-car-and-accident-detection system are given below:
 1.Raspberry PI
 2.Sonar Sensor (HC-SR04)
 3.Motor Driver
