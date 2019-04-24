@@ -5,12 +5,12 @@ import time
 import pyrebase
 
 config ={
-	"apiKey": "AIzaSyD6CrwdW8cBgm6S3aNF9FkWgK6aTtYsjd8",
-    "authDomain": "cse341project.firebaseapp.com",
-    "databaseURL": "https://cse341project.firebaseio.com",
-    "projectId": "cse341project",
-    "storageBucket": "cse341project.appspot.com",
-    "messagingSenderId": "638349095865"
+	"apiKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "authDomain": "xxxxxxxxxxxxxxxxxx.firebaseapp.com",
+    "databaseURL": "xxxxxxxxxxxxxxxxxxxx",
+    "projectId": "xxxxxxxxxxxxxxxxxxxx",
+    "storageBucket": "cxxxxxxxxxxxxxxxx.appspot.com",
+    "messagingSenderId": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 }
 
 firebase = pyrebase.initialize_app(config)
