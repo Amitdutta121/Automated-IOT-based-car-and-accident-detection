@@ -4,6 +4,7 @@ import time
 
 import pyrebase
 
+#firebase connect
 config ={
 	"apiKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "authDomain": "xxxxxxxxxxxxxxxxxx.firebaseapp.com",
@@ -17,6 +18,7 @@ firebase = pyrebase.initialize_app(config)
 
 db = firebase.database()
 
+
 # GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
 
@@ -28,7 +30,7 @@ GPIO_ECHO = 20
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
 
-
+#measure distance
 def distance():
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
@@ -61,9 +63,12 @@ if __name__ == '__main__':
     try:
         while True:
             dist = distance()
+	    #condition 20cm
             if int(dist)<20:
+		#update to firebase (Danger)
                 db.child("CSE341_project").update({"AGE": "Danger"})
             else:
+		#else upload to firebase (Safe)
                 db.child("CSE341_project").update({"AGE": "Safe"})
             print("Measured Distance = %.1f cm" % dist)
             time.sleep(1)
